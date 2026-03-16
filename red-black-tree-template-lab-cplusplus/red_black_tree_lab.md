@@ -113,7 +113,7 @@ Review the provided Red-Black Tree implementation:
 ## Quiz Answers
 
 1. b) 2 \* log₂(n)
-2. c) 15
+2. c) 7
 3. b) Red
 4. d) Property 5: All simple paths from a node to leaves contain the same number of black nodes
 5. c) Red-Black Trees require fewer rotations during insertion and deletion
