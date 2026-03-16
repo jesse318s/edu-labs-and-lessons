@@ -6,7 +6,8 @@
 
 // Initialize the TNULL (sentinel) node
 template <typename T>
-void RedBlackTree<T>::initializeNULLNode(RBNode<T>* node, RBNode<T>* parent) {
+void RedBlackTree<T>::initializeNULLNode(RBNode<T> *node, RBNode<T> *parent)
+{
     node->data = T();
     node->parent = parent;
     node->left = nullptr;
@@ -16,7 +17,8 @@ void RedBlackTree<T>::initializeNULLNode(RBNode<T>* node, RBNode<T>* parent) {
 
 // Constructor for Red-Black Tree
 template <typename T>
-RedBlackTree<T>::RedBlackTree() {
+RedBlackTree<T>::RedBlackTree()
+{
     TNULL = new RBNode<T>(T());
     TNULL->color = BLACK;
     TNULL->left = nullptr;
@@ -26,15 +28,18 @@ RedBlackTree<T>::RedBlackTree() {
 
 // Destructor for Red-Black Tree
 template <typename T>
-RedBlackTree<T>::~RedBlackTree() {
+RedBlackTree<T>::~RedBlackTree()
+{
     deleteAll(root);
     delete TNULL;
 }
 
 // Helper method to delete all nodes in the tree
 template <typename T>
-void RedBlackTree<T>::deleteAll(RBNode<T>* node) {
-    if (node != TNULL) {
+void RedBlackTree<T>::deleteAll(RBNode<T> *node)
+{
+    if (node != TNULL)
+    {
         deleteAll(node->left);
         deleteAll(node->right);
         delete node;
@@ -43,184 +48,230 @@ void RedBlackTree<T>::deleteAll(RBNode<T>* node) {
 
 // Left rotation on given node x
 template <typename T>
-void RedBlackTree<T>::leftRotate(RBNode<T>* x) {
-    RBNode<T>* y = x->right;
+void RedBlackTree<T>::leftRotate(RBNode<T> *x)
+{
+    RBNode<T> *y = x->right;
     x->right = y->left;
-    
-    if (y->left != TNULL) {
+
+    if (y->left != TNULL)
+    {
         y->left->parent = x;
     }
-    
+
     y->parent = x->parent;
-    
-    if (x->parent == nullptr) {
+
+    if (x->parent == nullptr)
+    {
         this->root = y;
-    } else if (x == x->parent->left) {
+    }
+    else if (x == x->parent->left)
+    {
         x->parent->left = y;
-    } else {
+    }
+    else
+    {
         x->parent->right = y;
     }
-    
+
     y->left = x;
     x->parent = y;
 }
 
 // Right rotation on given node x
 template <typename T>
-void RedBlackTree<T>::rightRotate(RBNode<T>* y) {
-    RBNode<T>* x = y->left;
+void RedBlackTree<T>::rightRotate(RBNode<T> *y)
+{
+    RBNode<T> *x = y->left;
     y->left = x->right;
-    
-    if (x->right != TNULL) {
+
+    if (x->right != TNULL)
+    {
         x->right->parent = y;
     }
-    
+
     x->parent = y->parent;
-    
-    if (y->parent == nullptr) {
+
+    if (y->parent == nullptr)
+    {
         this->root = x;
-    } else if (y == y->parent->right) {
+    }
+    else if (y == y->parent->right)
+    {
         y->parent->right = x;
-    } else {
+    }
+    else
+    {
         y->parent->left = x;
     }
-    
+
     x->right = y;
     y->parent = x;
 }
 
 // Search the tree for a key
 template <typename T>
-RBNode<T>* RedBlackTree<T>::searchTreeHelper(RBNode<T>* node, T key) {
-    if (node == TNULL || key == node->data) {
+RBNode<T> *RedBlackTree<T>::searchTreeHelper(RBNode<T> *node, T key)
+{
+    if (node == TNULL || key == node->data)
+    {
         return node;
     }
-    
-    if (key < node->data) {
+
+    if (key < node->data)
+    {
         return searchTreeHelper(node->left, key);
     }
-    
+
     return searchTreeHelper(node->right, key);
 }
 
 // Public method to search for a key in the tree
 template <typename T>
-bool RedBlackTree<T>::search(T key) {
+bool RedBlackTree<T>::search(T key)
+{
     return searchTreeHelper(this->root, key) != TNULL;
 }
 
 // Fix the Red-Black Tree properties after insertion
 template <typename T>
-void RedBlackTree<T>::insertFix(RBNode<T>* k) {
-    RBNode<T>* u;
-    
-    while (k->parent != nullptr && k->parent->color == RED) {
-        if (k->parent == k->parent->parent->right) {
+void RedBlackTree<T>::insertFix(RBNode<T> *k)
+{
+    RBNode<T> *u;
+
+    while (k->parent != nullptr && k->parent->color == RED)
+    {
+        if (k->parent == k->parent->parent->right)
+        {
             u = k->parent->parent->left;
-            
+
             // Case 1: Uncle is RED
-            if (u->color == RED) {
+            if (u->color == RED)
+            {
                 u->color = BLACK;
                 k->parent->color = BLACK;
                 k->parent->parent->color = RED;
                 k = k->parent->parent;
-            } else {
+            }
+            else
+            {
                 // Case 2: Uncle is BLACK and k is left child
-                if (k == k->parent->left) {
+                if (k == k->parent->left)
+                {
                     k = k->parent;
                     rightRotate(k);
                 }
-                
+
                 // Case 3: Uncle is BLACK and k is right child
                 k->parent->color = BLACK;
                 k->parent->parent->color = RED;
                 leftRotate(k->parent->parent);
             }
-        } else {
+        }
+        else
+        {
             u = k->parent->parent->right;
-            
+
             // Case 1: Uncle is RED
-            if (u->color == RED) {
+            if (u->color == RED)
+            {
                 u->color = BLACK;
                 k->parent->color = BLACK;
                 k->parent->parent->color = RED;
                 k = k->parent->parent;
-            } else {
+            }
+            else
+            {
                 // Case 2: Uncle is BLACK and k is right child
-                if (k == k->parent->right) {
+                if (k == k->parent->right)
+                {
                     k = k->parent;
                     leftRotate(k);
                 }
-                
+
                 // Case 3: Uncle is BLACK and k is left child
                 k->parent->color = BLACK;
                 k->parent->parent->color = RED;
                 rightRotate(k->parent->parent);
             }
         }
-        
-        if (k == root) {
+
+        if (k == root)
+        {
             break;
         }
     }
-    
+
     // Always ensure the root is BLACK
     root->color = BLACK;
 }
 
 // Insert a new key into the tree
 template <typename T>
-void RedBlackTree<T>::insert(T key) {
-    RBNode<T>* node = new RBNode<T>(key);
+void RedBlackTree<T>::insert(T key)
+{
+    RBNode<T> *node = new RBNode<T>(key);
     node->left = TNULL;
     node->right = TNULL;
-    
-    RBNode<T>* y = nullptr;
-    RBNode<T>* x = this->root;
-    
+
+    RBNode<T> *y = nullptr;
+    RBNode<T> *x = this->root;
+
     // Find the position to insert the new node
-    while (x != TNULL) {
+    while (x != TNULL)
+    {
         y = x;
-        if (node->data < x->data) {
+        if (node->data < x->data)
+        {
             x = x->left;
-        } else {
+        }
+        else
+        {
             x = x->right;
         }
     }
-    
+
     // Set the parent of the new node
     node->parent = y;
-    
+
     // If tree was empty, set node as root
-    if (y == nullptr) {
+    if (y == nullptr)
+    {
         root = node;
-        node->color = BLACK;  // Root must be black
+        node->color = BLACK; // Root must be black
         return;
-    } else if (node->data < y->data) {
+    }
+    else if (node->data < y->data)
+    {
         y->left = node;
-    } else {
+    }
+    else
+    {
         y->right = node;
     }
-    
+
     // If new node is a root node, return
-    if (node->parent == nullptr) {
+    if (node->parent == nullptr)
+    {
         node->color = BLACK;
         return;
     }
-    
+
     // If grandparent is null, simply return
-    if (node->parent->parent == nullptr) {
+    if (node->parent->parent == nullptr)
+    {
         return;
     }
-    
+
     // Fix Red-Black properties
     insertFix(node);
 }
 
 // Find the node with minimum key value
 template <typename T>
-RBNode<T>* RedBlackTree<T>::minimum(RBNode<T>* node) {
-    while (node->left != TNULL) {
+RBNode<T> *RedBlackTree<T>::minimum(RBNode<T> *node)
+{
+    while (node->left != TNULL)
+    {
         node = node->left;
     }
     return node;
@@ -228,8 +279,10 @@ RBNode<T>* RedBlackTree<T>::minimum(RBNode<T>* node) {
 
 // Find the node with maximum key value
 template <typename T>
-RBNode<T>* RedBlackTree<T>::maximum(RBNode<T>* node) {
-    while (node->right != TNULL) {
+RBNode<T> *RedBlackTree<T>::maximum(RBNode<T> *node)
+{
+    while (node->right != TNULL)
+    {
         node = node->right;
     }
     return node;
@@ -237,32 +290,42 @@ RBNode<T>* RedBlackTree<T>::maximum(RBNode<T>* node) {
 
 // Get minimum value in the tree
 template <typename T>
-T RedBlackTree<T>::getMinimum() {
-    if (root == TNULL) {
+T RedBlackTree<T>::getMinimum()
+{
+    if (root == TNULL)
+    {
         throw std::runtime_error("Tree is empty");
     }
-    RBNode<T>* min = minimum(root);
+    RBNode<T> *min = minimum(root);
     return min->data;
 }
 
 // Get maximum value in the tree
 template <typename T>
-T RedBlackTree<T>::getMaximum() {
-    if (root == TNULL) {
+T RedBlackTree<T>::getMaximum()
+{
+    if (root == TNULL)
+    {
         throw std::runtime_error("Tree is empty");
     }
-    RBNode<T>* max = maximum(root);
+    RBNode<T> *max = maximum(root);
     return max->data;
 }
 
 // Replace one subtree as a child of its parent with another subtree
 template <typename T>
-void RedBlackTree<T>::transplant(RBNode<T>* u, RBNode<T>* v) {
-    if (u->parent == nullptr) {
+void RedBlackTree<T>::transplant(RBNode<T> *u, RBNode<T> *v)
+{
+    if (u->parent == nullptr)
+    {
         root = v;
-    } else if (u == u->parent->left) {
+    }
+    else if (u == u->parent->left)
+    {
         u->parent->left = v;
-    } else {
+    }
+    else
+    {
         u->parent->right = v;
     }
     v->parent = u->parent;
@@ -270,45 +333,60 @@ void RedBlackTree<T>::transplant(RBNode<T>* u, RBNode<T>* v) {
 
 // Helper function for deletion
 template <typename T>
-void RedBlackTree<T>::deleteNodeHelper(RBNode<T>* node, T key) {
-    RBNode<T>* z = TNULL;
-    RBNode<T>* x, *y;
-    
+void RedBlackTree<T>::deleteNodeHelper(RBNode<T> *node, T key)
+{
+    RBNode<T> *z = TNULL;
+    RBNode<T> *x, *y;
+
     // Find the node to be deleted
-    while (node != TNULL) {
-        if (node->data == key) {
+    while (node != TNULL)
+    {
+        if (node->data == key)
+        {
             z = node;
         }
 
-        if (node->data <= key) {
+        if (node->data <= key)
+        {
             node = node->right;
-        } else {
+        }
+        else
+        {
             node = node->left;
         }
     }
 
-    if (z == TNULL) {
+    if (z == TNULL)
+    {
         std::cout << "Key not found in the tree" << std::endl;
         return;
     }
 
     y = z;
     Color y_original_color = y->color;
-    
-    if (z->left == TNULL) {
+
+    if (z->left == TNULL)
+    {
         x = z->right;
         transplant(z, z->right);
-    } else if (z->right == TNULL) {
+    }
+    else if (z->right == TNULL)
+    {
         x = z->left;
         transplant(z, z->left);
-    } else {
+    }
+    else
+    {
         y = minimum(z->right);
         y_original_color = y->color;
         x = y->right;
-        
-        if (y->parent == z) {
+
+        if (y->parent == z)
+        {
             x->parent = y;
-        } else {
+        }
+        else
+        {
             transplant(y, y->right);
             y->right = z->right;
             y->right->parent = y;
@@ -320,20 +398,25 @@ void RedBlackTree<T>::deleteNodeHelper(RBNode<T>* node, T key) {
         y->color = z->color;
     }
     delete z;
-    
-    if (y_original_color == BLACK) {
+
+    if (y_original_color == BLACK)
+    {
         deleteFix(x);
     }
 }
 
 // Fix the Red-Black Tree properties after deletion
 template <typename T>
-void RedBlackTree<T>::deleteFix(RBNode<T>* x) {
-    RBNode<T>* s;
-    while (x != root && x->color == BLACK) {
-        if (x == x->parent->left) {
+void RedBlackTree<T>::deleteFix(RBNode<T> *x)
+{
+    RBNode<T> *s;
+    while (x != root && x->color == BLACK)
+    {
+        if (x == x->parent->left)
+        {
             s = x->parent->right;
-            if (s->color == RED) {
+            if (s->color == RED)
+            {
                 // Case 1: x's sibling s is RED
                 s->color = BLACK;
                 x->parent->color = RED;
@@ -341,12 +424,16 @@ void RedBlackTree<T>::deleteFix(RBNode<T>* x) {
                 s = x->parent->right;
             }
 
-            if (s->left->color == BLACK && s->right->color == BLACK) {
+            if (s->left->color == BLACK && s->right->color == BLACK)
+            {
                 // Case 2: x's sibling s is BLACK, and both of s's children are BLACK
                 s->color = RED;
                 x = x->parent;
-            } else {
-                if (s->right->color == BLACK) {
+            }
+            else
+            {
+                if (s->right->color == BLACK)
+                {
                     // Case 3: x's sibling s is BLACK, s's left child is RED, and s's right child is BLACK
                     s->left->color = BLACK;
                     s->color = RED;
@@ -361,9 +448,12 @@ void RedBlackTree<T>::deleteFix(RBNode<T>* x) {
                 leftRotate(x->parent);
                 x = root;
             }
-        } else {
+        }
+        else
+        {
             s = x->parent->left;
-            if (s->color == RED) {
+            if (s->color == RED)
+            {
                 // Case 1: x's sibling s is RED
                 s->color = BLACK;
                 x->parent->color = RED;
@@ -371,12 +461,16 @@ void RedBlackTree<T>::deleteFix(RBNode<T>* x) {
                 s = x->parent->left;
             }
 
-            if (s->right->color == BLACK && s->left->color == BLACK) {
+            if (s->right->color == BLACK && s->left->color == BLACK)
+            {
                 // Case 2: x's sibling s is BLACK, and both of s's children are BLACK
                 s->color = RED;
                 x = x->parent;
-            } else {
-                if (s->left->color == BLACK) {
+            }
+            else
+            {
+                if (s->left->color == BLACK)
+                {
                     // Case 3: x's sibling s is BLACK, s's right child is RED, and s's left child is BLACK
                     s->right->color = BLACK;
                     s->color = RED;
@@ -398,14 +492,17 @@ void RedBlackTree<T>::deleteFix(RBNode<T>* x) {
 
 // Public method to delete a node with a given key
 template <typename T>
-void RedBlackTree<T>::remove(T key) {
+void RedBlackTree<T>::remove(T key)
+{
     deleteNodeHelper(this->root, key);
 }
 
 // Helper function for inorder traversal
 template <typename T>
-void RedBlackTree<T>::inorderHelper(RBNode<T>* node) {
-    if (node != TNULL) {
+void RedBlackTree<T>::inorderHelper(RBNode<T> *node)
+{
+    if (node != TNULL)
+    {
         inorderHelper(node->left);
         std::cout << node->data << " ";
         inorderHelper(node->right);
@@ -414,15 +511,18 @@ void RedBlackTree<T>::inorderHelper(RBNode<T>* node) {
 
 // Inorder traversal
 template <typename T>
-void RedBlackTree<T>::inorder() {
+void RedBlackTree<T>::inorder()
+{
     inorderHelper(this->root);
     std::cout << std::endl;
 }
 
 // Helper function for preorder traversal
 template <typename T>
-void RedBlackTree<T>::preorderHelper(RBNode<T>* node) {
-    if (node != TNULL) {
+void RedBlackTree<T>::preorderHelper(RBNode<T> *node)
+{
+    if (node != TNULL)
+    {
         std::cout << node->data << " ";
         preorderHelper(node->left);
         preorderHelper(node->right);
@@ -431,15 +531,18 @@ void RedBlackTree<T>::preorderHelper(RBNode<T>* node) {
 
 // Preorder traversal
 template <typename T>
-void RedBlackTree<T>::preorder() {
+void RedBlackTree<T>::preorder()
+{
     preorderHelper(this->root);
     std::cout << std::endl;
 }
 
 // Helper function for postorder traversal
 template <typename T>
-void RedBlackTree<T>::postorderHelper(RBNode<T>* node) {
-    if (node != TNULL) {
+void RedBlackTree<T>::postorderHelper(RBNode<T> *node)
+{
+    if (node != TNULL)
+    {
         postorderHelper(node->left);
         postorderHelper(node->right);
         std::cout << node->data << " ";
@@ -448,20 +551,26 @@ void RedBlackTree<T>::postorderHelper(RBNode<T>* node) {
 
 // Postorder traversal
 template <typename T>
-void RedBlackTree<T>::postorder() {
+void RedBlackTree<T>::postorder()
+{
     postorderHelper(this->root);
     std::cout << std::endl;
 }
 
 // Helper function to print the tree structure
 template <typename T>
-void RedBlackTree<T>::printHelper(RBNode<T>* root, std::string indent, bool last) {
-    if (root != TNULL) {
+void RedBlackTree<T>::printHelper(RBNode<T> *root, std::string indent, bool last)
+{
+    if (root != TNULL)
+    {
         std::cout << indent;
-        if (last) {
+        if (last)
+        {
             std::cout << "R----";
             indent += "     ";
-        } else {
+        }
+        else
+        {
             std::cout << "L----";
             indent += "|    ";
         }
@@ -475,8 +584,10 @@ void RedBlackTree<T>::printHelper(RBNode<T>* root, std::string indent, bool last
 
 // Print the tree structure
 template <typename T>
-void RedBlackTree<T>::printTree() {
-    if (root == TNULL) {
+void RedBlackTree<T>::printTree()
+{
+    if (root == TNULL)
+    {
         std::cout << "Tree is empty" << std::endl;
         return;
     }
@@ -485,27 +596,31 @@ void RedBlackTree<T>::printTree() {
 
 // Calculate black height (number of black nodes from root to leaves)
 template <typename T>
-int RedBlackTree<T>::blackHeightHelper(RBNode<T>* node) {
-    if (node == TNULL) {
+int RedBlackTree<T>::blackHeightHelper(RBNode<T> *node)
+{
+    if (node == TNULL)
+    {
         return 1; // NIL nodes are BLACK
     }
-    
+
     int leftHeight = blackHeightHelper(node->left);
     int rightHeight = blackHeightHelper(node->right);
-    
+
     // Validate property 5 (all paths have same number of black nodes)
-    if (leftHeight != rightHeight) {
+    if (leftHeight != rightHeight)
+    {
         std::cout << "Red-Black Tree property violation: Unbalanced black nodes" << std::endl;
         return -1;
     }
-    
+
     // Add current node to black height if it's black
     return (node->color == BLACK) ? leftHeight + 1 : leftHeight;
 }
 
 // Get black height of the tree
 template <typename T>
-int RedBlackTree<T>::getBlackHeight() {
+int RedBlackTree<T>::getBlackHeight()
+{
     return blackHeightHelper(root);
 }
 

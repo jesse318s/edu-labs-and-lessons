@@ -15,21 +15,21 @@ public class AppTest {
         try {
             App.main(new String[] {});
             String output = outContent.toString();
-            
+
             // Test basic arithmetic output
             assertTrue(output.contains("3"));
             assertTrue(output.contains("-1"));
-            
+
             // Test conditional output
             assertTrue(output.contains("a + b is equal to 3"));
-            
+
             // Test loop output
             assertTrue(output.contains("i = 5"));
             assertTrue(output.contains("i = 1"));
-            
+
             // Test function output
             assertTrue(output.contains("3"));
-            
+
             // Test OOP output
             assertTrue(output.contains("Hello, World!"));
             assertTrue(output.contains("isSpecial: true"));

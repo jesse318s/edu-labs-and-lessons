@@ -43,6 +43,7 @@ Implement a function that takes an array of integers and returns the sum of all 
 arr int[], n int
 
 **Pseudocode:**
+
 ```plaintext
 function analyzeTimeComplexity(arr, n):
     Initialize sum to 0
@@ -81,12 +82,14 @@ int main() {
 ```
 
 **Explanation:**
+
 - The function `analyzeTimeComplexity` takes an array `arr` and its size `n` as parameters.
 - It initializes a variable `sum` to 0.
 - It iterates through each element in the array and adds it to `sum`.
 - Finally, it returns the sum of the array elements.
 
 **Time Complexity Analysis:**
+
 - The time complexity of this function is O(n) because it iterates through the array once, where `n` is the number of elements in the array.
 
 **Unit Test:**

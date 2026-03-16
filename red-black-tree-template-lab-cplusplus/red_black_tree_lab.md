@@ -19,11 +19,13 @@ These properties ensure that the tree remains approximately balanced, with a hei
 ## Key Operations
 
 ### 1. Rotation Operations
+
 - **Left Rotation**: A transformation that moves a node down and to the left in the tree.
 - **Right Rotation**: A transformation that moves a node down and to the right in the tree.
 - Rotations are used to maintain the Red-Black properties during insertion and deletion.
 
 ### 2. Insertion
+
 - Insert a node as you would in a binary search tree (initially colored RED).
 - Fix any violations of Red-Black properties that may occur.
 - Common cases include:
@@ -32,6 +34,7 @@ These properties ensure that the tree remains approximately balanced, with a hei
   - Case 3: Uncle is BLACK (line configuration)
 
 ### 3. Deletion
+
 - Delete a node as you would in a binary search tree.
 - Fix any violations of Red-Black properties that may occur.
 - More complex than insertion, with multiple cases to handle.
@@ -46,25 +49,32 @@ These properties ensure that the tree remains approximately balanced, with a hei
 ## Lab Exercises
 
 ### Exercise 1: Understanding Red-Black Properties
+
 Analyze the implementation of the Red-Black Tree provided in this lab and explain how each of the five properties is maintained during insertion and deletion operations.
 
 ### Exercise 2: Visualization
+
 Draw the Red-Black Tree state (with proper coloring) after each of the following operations:
+
 1. Insert the following keys in order: 10, 20, 30, 40, 50
 2. After inserting the above, delete 20 from the tree
 
 ### Exercise 3: Code Analysis
+
 Review the provided Red-Black Tree implementation:
+
 1. Identify where each of the Red-Black properties is enforced.
 2. Explain the purpose of the sentinel node (TNULL) in the implementation.
 3. Analyze the time complexity of the insertion and deletion operations.
 
 ### Exercise 4: Implementation Challenges
+
 1. Add a method to verify that the tree satisfies all Red-Black properties.
 2. Implement a method to count the total number of red and black nodes in the tree.
 3. Write a function that returns the longest path (root to leaf) and shortest path in the tree and calculate their ratio.
 
 ### Exercise 5: Application
+
 1. Design a symbol table implementation using a Red-Black Tree.
 2. Compare the performance of your Red-Black Tree implementation with a standard library implementation (e.g., std::map) for a large dataset.
 
@@ -72,7 +82,7 @@ Review the provided Red-Black Tree implementation:
 
 1. What is the maximum possible height of a Red-Black Tree with n nodes?
    a) log₂(n)
-   b) 2 * log₂(n)
+   b) 2 \* log₂(n)
    c) n/2
    d) n
 
@@ -102,7 +112,7 @@ Review the provided Red-Black Tree implementation:
 
 ## Quiz Answers
 
-1. b) 2 * log₂(n)
+1. b) 2 \* log₂(n)
 2. c) 15
 3. b) Red
 4. d) Property 5: All simple paths from a node to leaves contain the same number of black nodes

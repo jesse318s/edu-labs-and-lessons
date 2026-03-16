@@ -31,7 +31,7 @@ function initializeWorkshop() {
 
   console.log("✅ AI models initialized successfully!");
   console.log(
-    "💡 Tip: Open browser console (F12) to experiment with the models directly"
+    "💡 Tip: Open browser console (F12) to experiment with the models directly",
   );
 
   // Log model info
@@ -88,21 +88,20 @@ window.predictWithKNN = function () {
     // Show which features are most important
     if (petalLength <= 2.5) {
       console.log(
-        `💡 Key insight: Small petal length (${petalLength}) strongly suggests Setosa`
+        `💡 Key insight: Small petal length (${petalLength}) strongly suggests Setosa`,
       );
     } else if (petalLength <= 4.8) {
       console.log(
-        `💡 Key insight: Medium petal length (${petalLength}) suggests Versicolor`
+        `💡 Key insight: Medium petal length (${petalLength}) suggests Versicolor`,
       );
     } else {
       console.log(
-        `💡 Key insight: Large petal length (${petalLength}) suggests Virginica`
+        `💡 Key insight: Large petal length (${petalLength}) suggests Virginica`,
       );
     }
   } catch (error) {
-    document.getElementById(
-      "classificationResult"
-    ).innerHTML = `❌ Error: ${error.message}`;
+    document.getElementById("classificationResult").innerHTML =
+      `❌ Error: ${error.message}`;
   }
 };
 
@@ -133,9 +132,8 @@ window.predictWithDecisionTree = function () {
       console.log(`Decision: ${petalLength} > 4.8 → Virginica`);
     }
   } catch (error) {
-    document.getElementById(
-      "classificationResult"
-    ).innerHTML = `❌ Error: ${error.message}`;
+    document.getElementById("classificationResult").innerHTML =
+      `❌ Error: ${error.message}`;
   }
 };
 
@@ -147,7 +145,7 @@ window.predictHousePrice = function () {
     const predictedPrice = regression.predict(houseSize);
     const resultElement = document.getElementById("regressionResult");
     resultElement.innerHTML = `🏠 Predicted Price: <strong>$${Math.round(
-      predictedPrice * 1000
+      predictedPrice * 1000,
     ).toLocaleString()}</strong>`;
 
     // Show regression equation and data
@@ -169,13 +167,12 @@ Model Parameters:
     console.log(`📈 Regression Analysis:`);
     console.log(`House size: ${houseSize} sq ft`);
     console.log(
-      `Predicted price: $${Math.round(predictedPrice * 1000).toLocaleString()}`
+      `Predicted price: $${Math.round(predictedPrice * 1000).toLocaleString()}`,
     );
     console.log(`Model equation: ${params.equation}`);
   } catch (error) {
-    document.getElementById(
-      "regressionResult"
-    ).innerHTML = `❌ Error: ${error.message}`;
+    document.getElementById("regressionResult").innerHTML =
+      `❌ Error: ${error.message}`;
   }
 };
 

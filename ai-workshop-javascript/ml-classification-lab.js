@@ -15,7 +15,7 @@ export class KNearestNeighbors {
   // Calculate Euclidean distance between two feature vectors
   calculateDistance(a, b) {
     return Math.sqrt(
-      a.reduce((sum, val, i) => sum + Math.pow(val - b[i], 2), 0)
+      a.reduce((sum, val, i) => sum + Math.pow(val - b[i], 2), 0),
     );
   }
 

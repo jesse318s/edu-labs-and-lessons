@@ -9,7 +9,8 @@ public class Main {
      * - Data types and structures
      * - Flow control structures (Conditionals and loops)
      * - Functional programming
-     * - Object-oriented programming (OOP Principles: Inheritance, Polymorphism, Abstraction, Encapsulation)
+     * - Object-oriented programming (OOP Principles: Inheritance, Polymorphism,
+     * Abstraction, Encapsulation)
      */
     public static void main(String[] args) {
         // Variable declaration
@@ -22,7 +23,7 @@ public class Main {
 
         // Data types and structures
         String arrElem1;
-        int[] arr = {1, 2, 3, 4, 5};
+        int[] arr = { 1, 2, 3, 4, 5 };
 
         arrElem1 = Integer.toString(arr[0]);
 
@@ -32,7 +33,6 @@ public class Main {
         } else {
             System.out.println("a + b is not equal to 3");
         }
-
 
         int i = 5;
 
@@ -45,7 +45,8 @@ public class Main {
         System.out.println(add(a, b));
         System.out.println(add(1, 2));
 
-        // Object-oriented programming (OOP Principles: Inheritance, Polymorphism, Abstraction, Encapsulation)
+        // Object-oriented programming (OOP Principles: Inheritance, Polymorphism,
+        // Abstraction, Encapsulation)
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.greet();
         helloWorld.getIsSpecial();
@@ -93,7 +94,8 @@ public class Main {
         }
 
         public void greet() {
-            if (this instanceof HelloWorld) System.out.println(message);
+            if (this instanceof HelloWorld)
+                System.out.println(message);
         }
     }
 }

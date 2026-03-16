@@ -46,13 +46,11 @@ By the end of this workshop, participants will:
 **Hands-on Activities:**
 
 1. **KNN Demonstration:**
-
    - Input flower measurements
    - Observe predictions
    - Understand distance calculations
 
 2. **Decision Tree Comparison:**
-
    - Same input, different algorithm
    - Understand rule-based decisions
    - Compare with KNN results
@@ -74,7 +72,6 @@ By the end of this workshop, participants will:
 **Hands-on Activities:**
 
 1. **Linear Regression Demo:**
-
    - Input house sizes
    - Observe price predictions
    - View regression equation
