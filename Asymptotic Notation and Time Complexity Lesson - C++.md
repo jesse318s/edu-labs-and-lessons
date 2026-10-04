@@ -23,7 +23,7 @@ By the end of this lab, students will understand the concepts of asymptotic nota
 
 4. **Lab Exercise (20 minutes)**
    - Implement a function in C++ to demonstrate understanding of time complexity
-   - Analyze the time complexity of the implemented function
+   - Analyze the time complexity of the implemented function, including a detailed breakdown of how each part of the code pertains to the definition of Big-O: T(n) <= c * g(n)
 
 #### Lab Exercise
 
@@ -91,6 +91,22 @@ int main() {
 **Time Complexity Analysis:**
 
 - The time complexity of this function is O(n) because it iterates through the array once, where `n` is the number of elements in the array.
+
+```cpp
+// analyzeTimeComplexity function with comments providing a detailed breakdown of how each part of the code pertains to the definition of Big-O: T(n) <= c * g(n).
+int analyzeTimeComplexity(int arr[], int n) {
+    // Executes 1 time. This line's cost is simply absorbed into the overarching multiplier 'c' in T(n) <= c * g(n).
+    int sum = 0;
+
+    // Evaluates proportional to n times. The 'n' iterations dictate our g(n) = n. The recurring loop overhead (increment/comparison) forms the baseline of 'c', while 1-time costs (initialization and the final failed comparison) are absorbed into 'c'.
+    for (int i = 0; i < n; i++)
+        // Executes exactly n times. The 'n' executions validate our g(n) = n bound, and the execution cost of the addition itself contributes to the baseline of 'c'.
+        sum += arr[i];
+
+    // Executes 1 time. Like the initialization, its constant time cost is absorbed into the total scaling multiplier 'c' in T(n) <= c * g(n).
+    return sum;
+}
+```
 
 **Unit Test:**
 
