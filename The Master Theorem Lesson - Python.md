@@ -1,4 +1,4 @@
-### Python Lesson: The Master Theorem
+## Python Lesson: The Master Theorem
 
 The Master Theorem provides a straightforward formula for determining the time complexity of divide-and-conquer algorithms. Before plugging in specific values, the standard unexpanded Master Theorem represents a general recurrence relation:
 
@@ -11,7 +11,7 @@ Here is what each variable represents when analyzing an algorithm's recursion tr
 * **b:** The factor by which the problem size is reduced for each recursive call (must be > 1).
 * **f(n):** The time complexity of the work done *outside* the recursive calls (usually the cost of dividing the problem and merging the results).
 
-#### The Master Theorem Equation Mapping for Binary Search
+### The Master Theorem Equation Mapping for Binary Search
 
 **Binary Search Code**
 ```python

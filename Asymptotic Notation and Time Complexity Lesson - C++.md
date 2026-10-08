@@ -1,6 +1,6 @@
-### C++ Lab Lesson: Asymptotic Notation and Time Complexity
+# C++ Lab Lesson: Asymptotic Notation and Time Complexity
 
-#### Lesson Plan
+## Lesson Plan
 
 **Objective:**
 By the end of this lab, students will understand the concepts of asymptotic notation and time complexity. They will be able to analyze the time complexity of algorithms and use Big O notation to describe their efficiency.
@@ -28,7 +28,9 @@ By the end of this lab, students will understand the concepts of asymptotic nota
 5. **Review Quiz (10 minutes)**
    - A simple quiz to test understanding of lesson content
 
-#### Lab Exercise
+## Lab Exercise
+
+### Instructions
 
 **Language:**
 C++
@@ -44,6 +46,8 @@ Implement a function that takes an array of integers and returns the sum of all 
 
 **Parameters:**
 arr int[], n int
+
+### Solution
 
 **Pseudocode:**
 
@@ -84,34 +88,14 @@ int main() {
 }
 ```
 
-**Explanation:**
+**Explanation of Implementation:**
 
 - The function `analyzeTimeComplexity` takes an array `arr` and its size `n` as parameters.
 - It initializes a variable `sum` to 0.
 - It iterates through each element in the array and adds it to `sum`.
 - Finally, it returns the sum of the array elements.
 
-**Time Complexity Analysis:**
-
-- The time complexity of this function is O(n) because it iterates through the array once, where `n` is the number of elements in the array.
-
-```cpp
-// analyzeTimeComplexity function with comments providing a detailed breakdown of how each part of the code pertains to the definition of Big-O: T(n) <= c * g(n).
-int analyzeTimeComplexity(int arr[], int n) {
-    // Executes 1 time. This line's cost is simply absorbed into the overarching multiplier 'c' in T(n) <= c * g(n).
-    int sum = 0;
-
-    // Evaluates proportional to n times. The 'n' iterations dictate our g(n) = n. The recurring loop overhead (increment/comparison) forms the baseline of 'c', while 1-time costs (initialization and the final failed comparison) are absorbed into 'c'.
-    for (int i = 0; i < n; i++)
-        // Executes exactly n times. The 'n' executions validate our g(n) = n bound, and the execution cost of the addition itself contributes to the baseline of 'c'.
-        sum += arr[i];
-
-    // Executes 1 time. Like the initialization, its constant time cost is absorbed into the total scaling multiplier 'c' in T(n) <= c * g(n).
-    return sum;
-}
-```
-
-**Unit Test:**
+**Unit Test for Implementation:**
 
 ```cpp
 #include <cassert>
@@ -138,7 +122,27 @@ int main() {
 }
 ```
 
-#### Review Quiz
+**Time Complexity Analysis of Implementation:**
+
+- The time complexity of this function is O(n) because it iterates through the array once, where `n` is the number of elements in the array.
+
+```cpp
+// analyzeTimeComplexity function with comments providing a detailed breakdown of how each part of the code pertains to the definition of Big-O: T(n) <= c * g(n).
+int analyzeTimeComplexity(int arr[], int n) {
+    // Executes 1 time. This line's cost is simply absorbed into the overarching multiplier 'c' in T(n) <= c * g(n).
+    int sum = 0;
+
+    // Evaluates proportional to n times. The 'n' iterations dictate our g(n) = n. The recurring loop overhead (increment/comparison) forms the baseline of 'c', while 1-time costs (initialization and the final failed comparison) are absorbed into 'c'.
+    for (int i = 0; i < n; i++)
+        // Executes exactly n times. The 'n' executions validate our g(n) = n bound, and the execution cost of the addition itself contributes to the baseline of 'c'.
+        sum += arr[i];
+
+    // Executes 1 time. Like the initialization, its constant time cost is absorbed into the total scaling multiplier 'c' in T(n) <= c * g(n).
+    return sum;
+}
+```
+
+## Review Quiz
 
 **Quiz Questions:**
 
