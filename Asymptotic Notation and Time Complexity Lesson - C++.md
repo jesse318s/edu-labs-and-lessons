@@ -23,7 +23,7 @@ By the end of this lab, students will understand the concepts of asymptotic nota
 
 4. **Lab Exercise (20 minutes)**
    - Implement a function in C++ to demonstrate understanding of time complexity
-   - Analyze the time complexity of the implemented function, including a detailed breakdown of how each part of the code pertains to the definition of Big-O: T(n) <= c * g(n)
+   - Analyze the time complexity of the implemented function in terms of Big-O, including a detailed breakdown of how each part of the code pertains to the definition of Big-O: T(n) <= c * g(n)
 
 5. **Review Quiz (10 minutes)**
    - A simple quiz to test understanding of lesson content
@@ -42,7 +42,7 @@ function
 analyzeTimeComplexity
 
 **Description:**
-Implement a function that takes an array of integers and returns the sum of all elements. Analyze the time complexity of the function and explain your reasoning.
+Implement a function that takes an array of integers and returns the sum of all elements. Analyze the time complexity of the function in terms of Big-O and explain your reasoning.
 
 **Parameters:**
 arr int[], n int
