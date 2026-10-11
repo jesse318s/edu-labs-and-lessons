@@ -1,6 +1,6 @@
 ## Python Lesson: The Master Theorem
 
-The Master Theorem provides a straightforward formula for determining the time complexity of divide-and-conquer algorithms. Before plugging in specific values, the standard unexpanded Master Theorem represents a general recurrence relation:
+The Master Theorem provides a straightforward formula for determining the time complexity of divide-and-conquer algorithms. Before plugging in specific values, the standard un-extended Master Theorem represents a general recurrence relation:
 
 **T(n) = aT(n/b) + f(n)**
 
@@ -35,7 +35,7 @@ def binary_search(arr, low, high, target):
 * **b = 2 (Subproblem size divisor):** When the recursive call is made, the new search space boundaries (`low` to `mid - 1` OR `mid + 1` to `high`) effectively divide the remaining array size n by 2.
 * **f(n) = O(1) (Work done outside recursion):** This maps to the operations happening before the recursive calls. In the code, this includes checking `if low > high`, calculating `mid = (low + high) // 2`, and comparing `arr[mid]` to the `target`. These operations take constant time, regardless of the array size.
 
-Putting it together, the exact unexpanded Master Theorem equation for binary search is:
+Putting it together, the exact un-extended Master Theorem equation for binary search is:
 
 **T(n) = 1T(n/2) + O(1)**
 
