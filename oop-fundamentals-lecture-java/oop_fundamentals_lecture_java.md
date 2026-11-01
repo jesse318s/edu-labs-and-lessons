@@ -1,7 +1,7 @@
 # 15-Minute Java Classes & OOP Fundamentals Lecture
 
 **Duration:** 15 minutes
-**Goal:** Understand Java classes, objects, and the four pillars of OOP
+**Goal:** Understand Java classes, objects, and the four pillars of OOP (encapsulation, inheritance, polymorphism, and abstraction)
 
 ---
 
