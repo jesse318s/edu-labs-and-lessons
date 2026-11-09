@@ -4,7 +4,7 @@
 
 This lab explores the binary search tree (BST), a foundational ordered tree structure. A BST keeps its keys in sorted order while still allowing fast search, insertion, and deletion. When the tree stays roughly balanced, those operations run in O(log n) time.
 
-This is a **writing lab**. The class interface and a full test harness are provided, but you implement the tree yourself in `bst_starter.cpp`. A completed reference implementation lives in `bst_solution.cpp` so you can check your work after you have made a serious attempt.
+This is a **writing lab**. The class interface and a full test harness are provided, but you implement the tree yourself in `bst_starter.cpp`.
 
 ## Learning Objectives
 
@@ -193,13 +193,6 @@ If `make` is not available, compile directly:
 ```bash
 g++ -g -Wall -std=c++11 main.cpp bst_starter.cpp -o program.exe
 ./program.exe
-```
-
-The reference solution is not part of the default build. To compile it separately:
-
-```bash
-g++ -g -Wall -std=c++11 main.cpp bst_solution.cpp -o bst_solution.exe
-./bst_solution.exe
 ```
 
 ## Lab Exercises
