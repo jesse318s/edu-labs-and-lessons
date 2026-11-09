@@ -1,12 +1,15 @@
 # Python GUI Lab (with Tkinter): Tip Calculator
 
 ## Objective
+
 Learn the basics of building GUI applications with Python's Tkinter library by creating a simple Tip Calculator from scratch.
 
 ## Difficulty
+
 Beginner
 
 ## Concepts Covered
+
 - Creating a Tkinter window
 - Using Labels, Entries, and Buttons
 - Layout management with `pack()` or `grid()`
@@ -17,6 +20,7 @@ Beginner
 ## Problem Description
 
 Create a Tip Calculator application that:
+
 1. Has a window titled "Tip Calculator"
 2. Allows the user to enter a bill amount
 3. Allows the user to enter a tip percentage (e.g., 15 for 15%)
@@ -26,20 +30,24 @@ Create a Tip Calculator application that:
 ## Requirements
 
 ### GUI Elements
+
 - Label and Entry for "Bill Amount ($)"
 - Label and Entry for "Tip Percentage (%)"
 - Button labeled "Calculate"
 - Labels to display "Tip Amount:" and "Total Amount:" with their calculated values
 
 ### Functionality
+
 - When Calculate is clicked, calculate:
-  - Tip = Bill Amount * (Tip Percentage / 100)
+  - Tip = Bill Amount \* (Tip Percentage / 100)
   - Total = Bill Amount + Tip
 - Display results rounded to 2 decimal places
 - Handle basic cases (you can assume valid numbers are entered for this lab)
 
 ### Code Structure
+
 Split your logic and GUI:
+
 - Create a function `main()` that sets up and runs the GUI
 - Call `main()` in a `if __name__ == "__main__":` block
 
@@ -55,19 +63,24 @@ Split your logic and GUI:
 ## Testing
 
 Run the tests with:
+
 ```bash
 python -m pytest test_main.py
 ```
+
 or
+
 ```bash
 python test_main.py
 ```
 
 ## Hints
+
 - Import tkinter: `import tkinter as tk` or `from tkinter import *`
 - Use `FloatVar()` or just get values with `.get()` and convert with `float()`
 - For layout, `grid(row=..., column=...)` is often clean for forms
 - Use `StringVar()` to update label text dynamically
 
 ## Solution
+
 A complete solution is provided in `solution.py` for reference after you've attempted the lab yourself!
