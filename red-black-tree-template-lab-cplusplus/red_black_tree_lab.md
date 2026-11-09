@@ -28,7 +28,7 @@ These properties ensure that the tree remains approximately balanced, with a hei
 
 - Insert a node as you would in a binary search tree (initially colored RED).
 - Fix any violations of Red-Black properties that may occur.
-- Common cases include:
+- The cases are:
   - Case 1: Uncle is RED
   - Case 2: Uncle is BLACK (triangle configuration)
   - Case 3: Uncle is BLACK (line configuration)
