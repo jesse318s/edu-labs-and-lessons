@@ -82,7 +82,7 @@ Review the provided Red-Black Tree implementation:
 
 1. What is the maximum possible height of a Red-Black Tree with n nodes?
    a) log₂(n)
-   b) 2 \* log₂(n)
+   b) 2 * log₂(n)
    c) n/2
    d) n
 
@@ -112,7 +112,7 @@ Review the provided Red-Black Tree implementation:
 
 ## Quiz Answers
 
-1. b) 2 \* log₂(n)
+1. b) 2 * log₂(n)
 2. c) 7
 3. b) Red
 4. d) Property 5: All simple paths from a node to leaves contain the same number of black nodes
