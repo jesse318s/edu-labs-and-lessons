@@ -80,7 +80,3 @@ python test_main.py
 - Use `FloatVar()` or just get values with `.get()` and convert with `float()`
 - For layout, `grid(row=..., column=...)` is often clean for forms
 - Use `StringVar()` to update label text dynamically
-
-## Solution
-
-A complete solution is provided in `solution.py` for reference after you've attempted the lab yourself!
