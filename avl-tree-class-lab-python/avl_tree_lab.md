@@ -240,9 +240,8 @@ Review `avl_tree.py` and answer the following:
 
 ### Exercise 5: Application and Performance
 
-1. Design a simple inventory system that uses an `AVLTree` keyed by product ID. Support adding products, removing products, and looking up products by ID. You may store product records in a separate dictionary keyed by ID.
-2. Insert 10,000 keys in ascending order into both an `AVLTree` and an unbalanced `BinarySearchTree` that you write yourself. Compare the heights and the time needed for 1,000 searches.
-3. Explain which structure you would choose for a read-heavy application and which you would choose for a write-heavy application.
+1. Insert 10,000 keys in ascending order into both an `AVLTree` and an unbalanced `BinarySearchTree` that you write yourself. Compare the heights and the time needed for 1,000 searches.
+2. Explain which structure you would choose for a read-heavy application and which you would choose for a write-heavy application.
 
 ## Quiz Questions
 
